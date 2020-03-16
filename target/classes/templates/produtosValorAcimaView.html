@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Acima do Valor Escolhido</title>
+</head>
+<body>
+    <!-- IF -->
+    <div th:if="${produtos != null}">
+        <table>
+            <tr th:each="prod: ${produtos}"> <!-- Percorre a lista de produtos, cada produto eh uma linha. -->
+                <td th:text="${prod?.codigo}"></td>
+                <td th:text="${prod?.nome}"></td>
+                <td th:text="${prod?.valor}"></td>
+                <td th:text="${prod?.estoque}"></td>
+            </tr>
+        </table>
+    </div>
+    <!-- ELSE -->
+    <div th:unless="${produtos != null}">
+        <h1>ERRO - Nenhum produto foi encontrado.</h1>
+        <p>Obs: Pode ser que nenhum produto tenha sido cadastrado ainda.</p>
+    </div>
+</body>
+</html>

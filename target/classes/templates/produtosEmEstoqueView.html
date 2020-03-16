@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos em Estoque</title>
+</head>
+<body>
+    <!-- IF -->
+    <div th:if="${prods != null}">
+        <table>
+            <tr th:each="p: ${prods}"> <!-- Percorre a lista de produtos, cada produto eh uma linha. -->
+                <td th:text="${p?.codigo}"></td>
+                <td th:text="${p?.nome}"></td>
+                <td th:text="${p?.valor}"></td>
+                <td th:text="${p?.estoque}"></td>
+            </tr>
+        </table>
+    </div>
+    <!-- ELSE -->
+    <div th:unless="${prods != null}">
+        <h1>ERRO - Nao ha produtos cadastrados.</h1>
+    </div>
+</body>
+</html>

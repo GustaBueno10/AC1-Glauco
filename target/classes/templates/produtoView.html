@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+</head>
+<body>
+    <!-- IF -->
+    <div th:if="${prod != null}"> <!-- Caso o produto retornado seja diferente de null (caso o produto exista). -->
+        <h1>Dados do produto escolhido:</h1>
+        <p th:text="${prod?.codigo}"></p>
+        <p th:text="${prod?.nome}"></p>
+        <p th:text="${prod?.valor}"></p>
+        <p th:text="${prod?.estoque}"></p>
+    </div>
+    <!-- ELSE -->
+    <div th:unless="${prod != null}"> <!-- Caso o produto retornado seja igual a null (caso o produto nao exista). -->
+        <h1>ERRO - O produto nao existe.</h1>
+    </div>
+</body>
+</html>
